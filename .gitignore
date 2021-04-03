@@ -1,0 +1,23 @@
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+!docker/**/bin
+
+# Intellij
+.idea
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+.
+# gradle
+.gradle
+build/
+tomcat.8080
+
+# vscode
+.vscode

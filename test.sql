@@ -1,0 +1,7 @@
+\\\
+
+リナックスdddjj\\kkk
+
+リナックスdddkkkk
+sss
+

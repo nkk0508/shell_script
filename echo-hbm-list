@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# sessionfactoryのリストからPageLayout.hbm.xml, PageParts.hbm.xml, PagePartsConfig.hbm.xmlは外す
+CURRENT_DIR=$(cd $(dirname $0); pwd)
+
+cd $CURRENT_DIR/../../
+
+dir_path="./project/core/src/jp/co/sint/webshop/data/hibernate"
+files=`find $dir_path -type f -name "*.xml" | sort | sed 's!^.*/!!'`
+
+echo '<list>'
+
+for file in $files;
+do
+    echo '  <value>'
+    echo '    jp/co/sint/webshop/data/hibernate/'$file
+    echo '  </value>'
+done
+
+echo '</list>'

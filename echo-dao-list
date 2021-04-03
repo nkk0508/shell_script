@@ -1,0 +1,19 @@
+#!/bin/sh
+
+CURRENT_DIR=$(cd $(dirname $0); pwd)
+
+cd $CURRENT_DIR/../../
+
+dir_path="./project/core/src/jp/co/sint/webshop/data/dao/impl"
+files=`find $dir_path -type f | sort | sed 's!^.*/!!'`
+
+
+for file in $files;
+do
+  without_extension=`echo $file | sed -e 's/.java//g'`
+  without_impl=`echo $file | sed -e 's/Impl.java//g'`
+  echo "<bean id=\"$without_impl\""
+  echo "  class=\"jp.co.sint.webshop.data.dao.impl.$without_extension\">"
+  echo "  <property name=\"sessionFactory\" ref=\"webshopSessionFactory\" />"
+  echo "</bean>"
+done
